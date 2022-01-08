@@ -50,7 +50,7 @@ function UserSearch() {
       </div>
       {users.length > 0 && (
         <div>
-          <button className='btn btn-ghost btn-lg' onClick={clearUsers}>
+          <button className='btn btn-ghost btn-lg' onClick={() => dispatch({type: 'CLEAR_USERS'})}>
             Clear
           </button>
         </div>
