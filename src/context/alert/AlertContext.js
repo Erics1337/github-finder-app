@@ -23,3 +23,4 @@ export const AlertProvider = ({ children }) => {
     )
 
 }
+export default AlertContext
