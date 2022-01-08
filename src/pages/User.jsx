@@ -4,15 +4,17 @@ import { useEffect, useContext } from 'react';
 import GithubContext from '../context/github/GithubContext'
 import { useParams } from 'react-router-dom'
 import Loader from '../components/layout/Loader';
+import RepoList from '../components/layout/repos/RepoList'
 
 
 function User() {
-    const { user, getUser, loading } = useContext(GithubContext)
+    const { user, getUser, loading, getUserRepos, repos } = useContext(GithubContext)
     const params = useParams()
 
 
     useEffect(() => {
         getUser(params.login)
+        getUserRepos(params.login)
     }, [])
 
 
@@ -130,6 +132,7 @@ function User() {
                         </div>
                     </div>
                 </div>
+                <RepoList repos={repos} />
             </div>
         </>
     )
